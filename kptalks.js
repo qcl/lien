@@ -1,15 +1,17 @@
 var attempt_count      = 0,
     kp_height         = 450, // 圖片高度
     kp_left_distance  = '-130px', // 滑入後的 left
-    kp_slide_speed    = 100;// 滑入、滑出速度
-
-var kp_width = Math.ceil(kp_height*30/29),
+    kp_slide_speed    = 100, // 滑入、滑出速度
+    default_text = '你好，我是柯文哲',
+    img_source = 'http://unlimited.kptaipei.tw/images/kp.png',
+    api_source = 'http://api.kptaipei.tw/v1/category/40?accessToken=kp53f568e77303e9.28212837',
+    kp_width = Math.ceil(kp_height*30/29),
     posts = {},
     kp_says,
-    kp = '<div id="kp_come_container" style="width:'+kp_width+'; height:'+kp_height+'px; position:fixed; left:-'+kp_width+'px; bottom:0;"><img src="http://unlimited.kptaipei.tw/images/kp.png" style="width:100%; height:100%;"><div id="kp_popup" style="padding: 20px; width: 300px; height:140px; position: absolute;left:'+(kp_width*0.8)+'px;top:'+(kp_height*0.28)+'px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;-webkit-box-shadow: rgba(0,0,0,.4) 0px 1px 5px -1px;box-shadow: rgba(0,0,0,.4) 0px 1px 5px -1px; background-color:beige;display:none;"><div id="kp_says" style="text-align:center;font-size:18px;line-height:26px;">你好，我是柯文哲</div><div style="width: 0px;height: 0px;border-top-width: 15px;border-top-style: solid;border-top-color: transparent;border-bottom-width: 15px;border-bottom-style: solid;border-bottom-color: transparent;border-right-width: 40px;border-right-style: solid;border-right-color: rgba(0,0,0,.4);position: absolute;left: -40px;top:30%;"></div><div style="width: 0px;height: 0px;border-top-width: 15px;border-top-style: solid;border-top-color: transparent;border-bottom-width: 15px;border-bottom-style: solid;border-bottom-color: transparent;border-right-width: 42px;border-right-style: solid;border-right-color: beige;position: absolute;left: -40px;top:29.8%;"></div></div></div><style>#kp_says {height:140px;overflow-y:auto;text-algin:center;}#kp_says p,#kp_says span {padding:0;margin:0;font-size:18px;line-height:26px;}#kp_say_hi{padding:0;margin:0;font-size:18px;line-height:26px;padding-bottom:5px;display:block;}#kp_says #kp_say_bighi{font-size:22px;font-weight:bold;line-height:32px;}</style>';
+    kp = '<div id="kp_come_container" style="width:'+kp_width+'; height:'+kp_height+'px; position:fixed; left:-'+kp_width+'px; bottom:0;"><img src="'+img_source+'" style="width:100%; height:100%;"><div id="kp_popup" style="padding: 20px; width: 300px; height:140px; position: absolute;left:'+(kp_width*0.8)+'px;top:'+(kp_height*0.28)+'px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;-webkit-box-shadow: rgba(0,0,0,.4) 0px 1px 5px -1px;box-shadow: rgba(0,0,0,.4) 0px 1px 5px -1px; background-color:beige;display:none;"><div id="kp_says" style="text-align:center;font-size:18px;line-height:26px;">'+default_text+'</div><div style="width: 0px;height: 0px;border-top-width: 15px;border-top-style: solid;border-top-color: transparent;border-bottom-width: 15px;border-bottom-style: solid;border-bottom-color: transparent;border-right-width: 40px;border-right-style: solid;border-right-color: rgba(0,0,0,.4);position: absolute;left: -40px;top:30%;"></div><div style="width: 0px;height: 0px;border-top-width: 15px;border-top-style: solid;border-top-color: transparent;border-bottom-width: 15px;border-bottom-style: solid;border-bottom-color: transparent;border-right-width: 42px;border-right-style: solid;border-right-color: beige;position: absolute;left: -40px;top:29.8%;"></div></div></div><style>#kp_come_container #kp_says {height:140px;overflow-y:auto;text-algin:center;}#kp_come_container #kp_says p,#kp_come_container #kp_says span {padding:0;margin:0;font-size:18px;line-height:26px;}#kp_come_container #kp_say_hi{padding:0;margin:0;font-size:18px;line-height:26px;padding-bottom:5px;display:block;}#kp_come_container #kp_says #kp_say_bighi{font-size:22px;font-weight:bold;line-height:32px;}</style>';
 
 $('body').append(kp);
-$.get("http://api.kptaipei.tw/v1/category/40?accessToken=kp53f568e77303e9.28212837",function(results){
+$.get(api_source,function(results){
   var i = 0;
   $.each(results.data,function(ind,item){
     posts[i] = item;
