@@ -1,43 +1,27 @@
-# 柯 P 滑出來對你說政見 2.1
+# 勝文滑出來對你說政見 1.0
 
 
 ## 簡介
 
-本 Plugin 之內容與資訊來源，使用「[柯文哲野生官網 unlimited](http://unlimited.kptaipei.tw/)」所提供之 API 服務，讓您可以簡單、輕鬆地在 個人網站 或 網誌 中埋入「柯P彩蛋」，並讓更多人得以了解柯文哲之政見。
+不同於「[柯 P 滑出來對你說政見](http://goooooooogle.github.io/kp)」使用「[柯文哲野生官網 unlimited](http://unlimited.kptaipei.tw/)」所提供之 API 服務
+相信一定是生怕一不小心[又被邪惡的網軍與駭客入侵](http://debug-guy-blog.logdown.com/posts/222620-taipeihope-ggininder)，[連勝文的競選官方網站](http://taipeihope.tw/)目前看起來沒有提供 API
+因此並無法透過 API 取得勝文的政見，*API 真是太危險了，怎麼可以公開呢！？*
+（什麼！？你說你不知道 API 是什麼？沒關係，讓[維基百科告訴你 API 是什麼](http://zh.wikipedia.org/wiki/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%8E%A5%E5%8F%A3)）
+還好透過[無敵黨證](http://idmaker.osk2.me/)與[Line群組](http://bit.ly/1uKykgl)，我們最終成功地獨家取得勝文的政見！
 
-更多相關說明，請參考 [柯文哲野生官網 unlimited](http://unlimited.kptaipei.tw/)
-
+透過「勝文滑出來對你說政見」，讓您可以簡單、輕鬆地在 個人網站 或 網誌 中埋入「勝文彩蛋」
+並讓更多人得以了解連勝文之政見。更多相關說明，請拜訪 [連勝文的競選官方網站](http://taipeihope.tw/)
 
 ## 使用範例
 
-[請點擊這裡](http://goooooooogle.github.io/kp/)
+[請點擊這裡](http://qcl.github.io/lien/)
 
-
-## Firefox Addon
-
-如果要產生 xpi addon 檔案，到專案目錄下打 `make` 即可，這個指令會下載 Firefox Addon SDK 與 jquery 並且打包成 xpi 檔案放到 `firefox/kp-slide.xpi`
-
-如果想要測試，請用 `make run`，會開啟一個新的 Firefox 視窗並且已經安裝好 addon。
-
-
-![image](http://i.imgur.com/43Mm5gW.png)
-
-## Chrome Extension
-
-Build Chrome extension 稍微麻煩一點，請先到專案目錄下面打 `make chrome`，這個時候 jquery 跟 kptalks 的檔案會被複製到 chrome 目錄底下，這個時候請打開 Chrome -> 工具 -> 擴充功能，點選 `封裝擴充功能` 即可打包 chrome extension，詳情請見 Chrome 官網上面的[打包說明](https://developer.chrome.com/extensions/packaging)
-
-![Chrome extension screenshot](http://i.imgur.com/XFQASSG.png)
 
 ## 更新紀錄
 
-ver 1.0 初次亮相，請多指教 了解更多
-
-ver 2.0 更改 Plugin 架構，並且新增可自訂之 Options
-
-ver 2.1 新增數個 options：可設定多張圖片、對話框出現效果、可選左側或右側滑出、可設定文字和背景顏色等等
-移除 left 選項，改以 enter_distance 取代
+ver 1.0 直接Fork自「[柯 P 滑出來對你說政見](https://github.com/goooooooogle/kp/)」，並新增爆橘勝文、樂不可支勝文等等
 
 
 ## 授權
 
-本專案採用 [BSD 授權](https://github.com/goooooooogle/kp/blob/gh-pages/LICENSE)
+本專案採用 [BSD 授權](https://github.com/qcl/lien/blob/gh-pages/LICENSE)
