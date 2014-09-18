@@ -52,14 +52,14 @@ def updateLiensPolicy():
 
         policyTitle = page(".heading>h2>a").text()
         policyContent = page("div.text").html()
-
-        print policyContent
+        policyPlainContent = page("div.text>p").text()
 
         print "Extract %s" % (policyTitle)
 
         liensOfficalPolicy.append({
             "title":policyTitle,
             "url":policyURL,
+            "plain_content":policyPlainContent,
             "content":policyContent
             })
 
