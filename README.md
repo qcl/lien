@@ -22,6 +22,14 @@
 ver 1.0 直接Fork自「[柯 P 滑出來對你說政見](https://github.com/goooooooogle/kp/)」，並新增爆橘勝文、樂不可支勝文等等
 
 
+## 圖片來源
+
+1. 樂不可支勝文 - 2014.07.20 [【聯合報】連勝文出席婦女會成年禮 笑到樂不可支](https://www.ptt.cc/bbs/HatePolitics/M.1405857370.A.7D7.html)
+2. 爆橘勝文 - 2014.09.03 [「市長，給問嗎？」影片拍攝花絮](http://youtu.be/dleihc0X_jE)
+3. 指你勝文 - 2014.09.03 [「市長，給問嗎？」影片拍攝花絮](http://youtu.be/dleihc0X_jE)
+4. 符文止兀 - 2014.08.06 [【蘋果日報】割闌尾通過連署門檻　蔡正元：恭喜他們](http://www.appledaily.com.tw/realtimenews/article/politics/20140826/458281/)
+5. 恐龍勝文 - 2014.09.15 [【民報】參觀3D列印　連勝文戴恐龍頭喊「凍蒜」](http://www.peoplenews.tw/news/3599d4c5-0e41-4dce-b1dc-86e132650566)
+
 ## 授權
 
 本專案採用 [BSD 授權](https://github.com/qcl/lien/blob/gh-pages/LICENSE)
