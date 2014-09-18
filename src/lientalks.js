@@ -3,7 +3,7 @@
   $.lientalks = function(options) {
 
     var settings = $.extend({
-        api: 'http://api.lientaipei.tw/v1/category/40?accessToken=lien53f568e77303e9.28212837',
+        api: null,
         image: [
           'http://qcl.github.io/lien/img/lien.png',
           'http://qcl.github.io/lien/img/lien-1.png',
@@ -140,40 +140,40 @@
   }
 
   function loadData(settings){
+    
+    //TODO: settings.api
+    
+    // Use YQL to prevent the access control allow origin problem
+    var api = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20json%20where%20url%3D%27http%3A%2F%2Fqcl.github.io%2Flien%2Fapi%2Fofficial-policy%27&format=json";
+
     var posts = {}, says;
-    $.get(settings.api,function(results){
+    $.get(api,function(results){
+       
       var i = 0;
-      $.each(results.data,function(ind,item){
+      $.each(results.query.results.json.json,function(ind,item){
         posts[i] = item; i++;
       });
+      
       var post = posts[Math.floor(Math.random()*(i-1))]
-          link = '<a href="'+post.url+'" target="_blank" class="lien_readmore" style="color:'+settings.readmore_color+'">了解更多柯文哲的政見</a>';
-
-      var title = (post.title).replace(/【柯p新政】/g,"");
+          link = '<a href="'+post.url+'" target="_blank" class="lien_readmore" style="color:'+settings.readmore_color+'">了解更多連勝文的政見</a>';
+      
+      var title = (post.title).replace(/連勝文政見/g,"").replace(/- /g,"");
       var content = stringReplace(post.plain_content);
-      content = content.split('\n');
-      if(content[1] == undefined){
-        says = '<p id="lien_say_bighi" style="color:'+settings.popup_color+'">'+settings.default_text+'<br>我提出<br>「'+title.substring(2)+'」</p>'+link;
-      }
-      else {
-        says = '<p id="lien_say_hi" style="color:'+settings.popup_color+'">'+settings.default_text+'</p>'+content[3]+content[4]+'...'+link+'</p>';
-      }
+        
+      says = '<p id="lien_say_hi" style="color:'+settings.popup_color+'">'+settings.default_text+'<br>我提出「'+title.substring(4)+'」</p>'+content.substring(0,60)+'...</p>'+link;
 
       $('#lien_says').scrollTop(0).html(says).promise().done(function(){
         $('p').removeAttr("style"); $('span').removeAttr("style");
       });
+      
     });
   }
 
   function stringReplace(string){
-    return string.replace(/柯文哲/g,'我')
-      .replace(/台北市長參選人/g,'')
+    return string.replace(/連勝文/g,'我')
+      .replace(/台北市長候選人/g,'')
       .replace(/我表示/g,'我認為')
-      .replace(/我指出/g,'我認為')
-      .replace('今（29）日','')
-      .replace('「','')
-      .replace('」','')
-      .replace('柯P的主張我的政策主張','我主張');
+      .replace(/我指出/g,'我認為');
   }
 
   function popupIn(effect) {
